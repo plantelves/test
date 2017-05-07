@@ -18,7 +18,7 @@ class Meal{
 	public String getDrink(){
 		return drink;
 	};
-}		//è·å–é£Ÿç‰©
+}		//»ñÈ¡Ê³Îï
 
 abstract class MealBuilder{
 	protected Meal meal = new Meal();
@@ -29,26 +29,26 @@ abstract class MealBuilder{
 	public Meal getMeal(){
 		return meal;
 	}
-}		//æŠ½è±¡é£Ÿç‰©å»ºé€ è€…
+}		//³éÏóÊ³Îï½¨ÔìÕß
 
 class SubMealBuilderA extends MealBuilder{
 
 	public void buildFood(){
-		meal.setFood("æ±‰å ¡");
+		meal.setFood("ºº±¤");
 	}
 	public void buildDrink() {
-		meal.setDrink("å¯ä¹");
+		meal.setDrink("¿ÉÀÖ");
 	}
-}		//å…·ä½“é£Ÿç‰©å»ºé€ æ–¹æ³•å®ç° å¥—é¤A
+}		//¾ßÌåÊ³Îï½¨Ôì·½·¨ÊµÏÖ Ì×²ÍA
 
 class SubMealBuilderB extends MealBuilder{	
 	public void buildFood(){
-		meal.setFood("é¸¡è‚‰å·");
+		meal.setFood("¼¦Èâ¾í");
 	}
 	public void buildDrink() {
-		meal.setDrink("æœæ±");
+		meal.setDrink("¹ûÖ­");
 	}
-}		//å…·ä½“é£Ÿç‰©å»ºé€ æ–¹æ³•å®ç° å¥—é¤B
+}		//¾ßÌåÊ³Îï½¨Ôì·½·¨ÊµÏÖ Ì×²ÍB
 
 class KFCWaiter{
 	private MealBuilder mb;
@@ -66,17 +66,17 @@ class KFCWaiter{
 		mb.buildDrink();
 		return mb.getMeal();
 	}
-}		//æŒ‡æŒ¥è€…waiter
+}		//Ö¸»ÓÕßwaiter
 
 public class Customer {
 	public static void main(String args[]){
-		String s = JOptionPane.showInputDialog("è¯·é€‰æ‹©å¥—é¤A|B ");
+		String s = JOptionPane.showInputDialog("ÇëÑ¡ÔñÌ×²ÍA|B ");
 		if(s.equals("A")){
 			MealBuilder mb_A = new SubMealBuilderA();
 			KFCWaiter waiter_A = new KFCWaiter(mb_A);
 			Meal meal_A = waiter_A.construct();
 			
-			System.out.println("å¥—é¤"+s);
+			System.out.println("Ì×²Í"+s);
 			System.out.println(meal_A.getFood());
 			System.out.println(meal_A.getDrink());
 		}
@@ -85,12 +85,14 @@ public class Customer {
 			KFCWaiter waiter_B = new KFCWaiter(mb_B);
 			Meal meal_B = waiter_B.construct();
 			
-			System.out.println("å¥—é¤"+s);
+			System.out.println("Ì×²Í"+s);
 			System.out.println(meal_B.getFood());
 			System.out.println(meal_B.getDrink());
-		}	
-    
-		System.out.println("é£Ÿç‰©å·²é€ç»™é¡¾å®¢");
+		}
+		
+		
+		
+		System.out.println("Ê³ÎïÒÑËÍ¸ø¹Ë¿Í");
 		
 	}
-}		//æœ€ç»ˆå½¢æˆé£Ÿç‰©é€ç»™é¡¾å®¢
+}		//×îÖÕĞÎ³ÉÊ³ÎïËÍ¸ø¹Ë¿Í
