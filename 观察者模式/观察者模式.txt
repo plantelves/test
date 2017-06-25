@@ -1,0 +1,32 @@
+一、
+目标：Generator
+
+具体目标：TestGenerator
+
+观察者：MethodModel
+
+具体观察者：TestMethodModel
+
+开源代码链接为：https://github.com/JetBrains/kotlin/tree/master/generators/src/org/jetbrains/kotlin/generators/tests/generator
+
+模块关系见文件夹中UML图
+
+符合观察者模式的代码见文件夹中Sample.java
+
+由于我找的链接的代码有一部分为非.java文件，所以不能运行，符合观察者模式的代码，在源码基础上有稍微改动。
+
+任务是：观察者是方法模型，具体观察者是测试方法模型，目标是产生者，具体目标是测试产生者
+当测试方法正确时，测试产生者才会正确。
+
+二、
+1、Spring MVC请所有的请求都提交给TestEntityModel，它会委托应用系统的其它模块负责对请求进行真正的处理。
+
+2、TestEntityModel查询 SimpleTestClassModel、SimpleTestMethodModel、SingleClassTestModel、DelegatingTestClassModel ，找到处理请求的TestGenerator
+
+3、TestEntityModel将请求提交到目标TestGenerator
+
+4、TestGenerator进行业务逻辑处理后，会返回一个TestGeneratorUtil
+
+5、TestEntityModel查询escapeForJavaIdentifier、fileNameToJavaIdentifier，找到TestGeneratorUtil对象指定的视图对象
+
+6、视图对象负责渲染返回给客户端
